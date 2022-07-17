@@ -1,1 +1,1 @@
-# Interpretable-automated-Model-for-failure-mode-identification-of-shea-walls
+# Interpretable-automated-Model-for-failure-mode-identification-of-shear-walls
