@@ -20,7 +20,7 @@ maxyx = 0
 for times1 in dict:
 
  import csv
- p = r'X_train1.csv'
+ p = r'Shear Wall dataset.csv'
  with open(p,encoding = 'utf-8') as f:
     data = np.loadtxt(f,str,delimiter = ",", skiprows = 1)
 
