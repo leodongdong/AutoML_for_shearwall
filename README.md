@@ -1,1 +1,1 @@
-# Interpretable-automated-Model-for-failure-mode-identification-of-shear-walls
+# AutoML&Interpretability_for_shear_wall
