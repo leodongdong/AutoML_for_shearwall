@@ -1,1 +1,1 @@
-# AutoML&Interpretability_for_shear_wall
+# AutoML_for_shear_wall
