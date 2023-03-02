@@ -9,7 +9,7 @@ import sklearn.model_selection
 import sklearn.compose
 
 # maximum time
-max_seconds = 70
+max_seconds = 100
 # reading data from Excel
 import xlrd
 book = xlrd.open_workbook('Shear_Wall_dataset.xlsx') 
