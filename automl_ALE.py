@@ -26,18 +26,18 @@ max_seconds = 100
 import xlrd
 book = xlrd.open_workbook('Shear_Wall_dataset.xlsx') 
 data = book.sheet_by_name('stage_1_pre_random_inter')         # Pre-randomized sequence for  
-rows = data.nrows  # 获取总行数
-cols = data.ncols  # 获取总列数
-allline = []  # 存储所有行
+rows = data.nrows  # acquire row lines
+cols = data.ncols  # acquire column lines
+allline = []  # save all rows
 for i in range(rows):
-    line = []  # 存储单行数据
+    line = []  # save single row
     for j in range(cols):
         cell = data.cell_value(i, j)
         try:
             line.append(cell)
         except ValueError as a:
             pass
-    allline.append(line)  # 单行数据保存
+    allline.append(line)  # save single row line
 data = np.array(allline)
 
 feature_names = ['Yield Stresses of Vertical Bars (MPa)', 'Yield Stresses of Horizontal Reinforcement (MPa)', 'Yield Stress of Confinement Reinforcement (MPa)', 'Concrete Compressive Strength (MPa)', 'Web Vertical Reinforcement Ratio', 'Boundary Region Vertical Reinforcement Ratio','Web Horizontal Reinforcement Ratio', 'Boundary Region (Volume) Horizontal Reinforcement Ratio','lw/tw','Aspect ratio','Ab/Ag','P/fcAg','Section_R','Section_B','Section_F']
