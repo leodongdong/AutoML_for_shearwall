@@ -13,7 +13,7 @@ For more details, please refer to the papers.
 # Goal of the research 
 
 The key scientific question is "How to resolve the complex data-expertise-reliant modeling process and the untrustworthy ‘black
-465 box’ of ML application in complex architecture, engineering and construction(AEC) problems?"
+box’ of ML application in complex architecture, engineering and construction(AEC) problems?"
 
 
 # Install
