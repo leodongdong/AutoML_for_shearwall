@@ -34,8 +34,6 @@ for i in range(rows):
             pass
     allline.append(line)  # 单行数据保存
 data = np.array(allline)
-
-
 labels = data[1:,17]
 print (labels)
 le= sklearn.preprocessing.LabelEncoder()
@@ -45,8 +43,8 @@ class_names = le.classes_
 data = data[1:,2:17]
 print (data)
 
+# Data processing
 categorical_features = [12,13,14]
-
 categorical_names = {}
 for feature in categorical_features:
     le = sklearn.preprocessing.LabelEncoder()
@@ -70,13 +68,10 @@ transformer = ColumnTransformer(
     ],
     remainder='passthrough' # donot apply anything to the remaining columns
 )
-
 transformer.fit(data)
-print (data.shape)
 encoded_train = transformer.transform(data)
-print (encoded_train.shape)
 
-
+# Automl model training
 classifier = autosklearn.classification.AutoSklearnClassifier(
         time_left_for_this_task = max_seconds,
         per_run_time_limit = max_seconds // 10,
@@ -85,23 +80,17 @@ classifier = autosklearn.classification.AutoSklearnClassifier(
 
 classifier.fit(data, labels, dataset_name='shearwall')
 
-
+# data transformation for PDP analysis
 features = ['Yield Stresses of Vertical Bars (MPa)', 'Yield Stresses of Horizontal Reinforcement (MPa)', 'Yield Stress of Confinement Reinforcement (MPa)', 'Concrete Compressive Strength (MPa)', 'Web Vertical Reinforcement Ratio', 'Boundary Region Vertical Reinforcement Ratio','Web Horizontal Reinforcement Ratio', 'Boundary Region (Volume) Horizontal Reinforcement Ratio','H (mm)','Ag (mm^2)','Af(mm^2)','P/fcAg','Section_R','Section_B','Section_F']
 titanic_features = features
 titanic_model = classifier
 titanic_target = 'FailureMode'
-
 data1 = pd.DataFrame(data, columns = ['Yield Stresses of Vertical Bars (MPa)', 'Yield Stresses of Horizontal Reinforcement (MPa)', 'Yield Stress of Confinement Reinforcement (MPa)', 'Concrete Compressive Strength (MPa)', 'Web Vertical Reinforcement Ratio', 'Boundary Region Vertical Reinforcement Ratio','Web Horizontal Reinforcement Ratio', 'Boundary Region (Volume) Horizontal Reinforcement Ratio','H (mm)','Ag (mm^2)','Af(mm^2)','P/fcAg','Section_R','Section_B','Section_F'])
 data2 = pd.DataFrame(labels, columns = ['FailureMode'])
-
-
 dataf=pd.concat([data1,data2],axis=1)
-print (dataf)
-print(dataf.dtypes)
-
 datas= dataf.astype(float)
 titanic_data = datas
-
+# PDP analysis for each feature
 # 1.concrete----------------------------------------------------------------------------------------------------------------------------------------------------
 fig, axes, summary_df = info_plots.target_plot(
     df=titanic_data, feature='Concrete Compressive Strength (MPa)', feature_name='Concrete strength', target=titanic_target, show_percentile=True
