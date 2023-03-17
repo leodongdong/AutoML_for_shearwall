@@ -32,8 +32,6 @@ LIME library (ver. 0.2.0)
 MIT license
 
 # Acknowledgements
-
-This work was supported by 
 * This study was supported by Hong Kong Research Grants Council (RGC) (Nos. T22-504/21-R, C7080–22GF)) and in part by Shenzhen Science Technology and Innovation Commission(SZSTI) (No. SGDX20201103093600002).
  
 
