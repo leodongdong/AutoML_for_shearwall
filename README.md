@@ -1,6 +1,6 @@
 # About AutoML_for_shear_wall 
 
-The AutoML_for_shear_wall provide an automatic, accurate, less reliant on data expertise, and interpretable menthod to solve solve some complex architecture, engineering and construction(AEC) problems.
+The AutoML_for_shear_wall provide an automatic, accurate, less reliant on data expertise, and interpretable menthod to solve some complex architecture, engineering and construction(AEC) problems.
 
 # How to cite
 
