@@ -61,12 +61,12 @@ transformer = sklearn.compose.ColumnTransformer(
 transformer.fit(data)
 encoded_train = transformer.transform(data)
 
+# automl training model
 automl = autosklearn.classification.AutoSklearnClassifier(
         time_left_for_this_task = max_seconds,
         per_run_time_limit = max_seconds // 10,
         metric = autosklearn.metrics.f1,
 )
-
 automl.fit(encoded_train, labels, dataset_name='shearwall')
 predict_fn = lambda x: automl.predict_proba(transformer.transform(x)).astype(float)
 
@@ -74,7 +74,7 @@ predict_fn = lambda x: automl.predict_proba(transformer.transform(x)).astype(flo
 explainer = lime.lime_tabular.LimeTabularExplainer(data ,feature_names = feature_names,class_names=class_names,
                                                    categorical_features=categorical_features, 
                                                    categorical_names=categorical_names, kernel_width=3)
-
+# LIME interpretability
 
 i = 8
 print(data[i])
