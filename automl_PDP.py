@@ -55,11 +55,8 @@ print (data)
 
 data = data.astype(float)
 
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
 
-transformer = ColumnTransformer(
+transformer = sklearn.compose.ColumnTransformer(
     transformers=[
         ("OneHot",        # Just a name
          OneHotEncoder(), # The transformer class
