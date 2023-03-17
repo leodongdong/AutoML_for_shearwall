@@ -53,6 +53,7 @@ data = data[1:,2:17]
 print (data)
 
 # data processing
+## encoding categorical_features from string to high-dim value
 categorical_features = [12,13,14]
 categorical_names = {}
 for feature in categorical_features:
